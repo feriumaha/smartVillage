@@ -5,6 +5,8 @@ var http = require('http').createServer(app);
 var session = require('express-session');
 var path = require('path');
 var db = require('./database.js');
+const packageJson = require('./package.json');
+const appVersion = packageJson.version;
 
 //Express Session 
 app.use(session({
@@ -47,7 +49,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/login', function(req, res){
-  res.render('login', {layout: 'login.ejs'});
+  res.render('login', {layout: 'login.ejs', version: appVersion});
 });
 
 
