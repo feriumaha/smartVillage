@@ -52,6 +52,10 @@ app.get('/login', function(req, res){
   res.render('login', {layout: 'login.ejs', version: appVersion});
 });
 
+app.get('/register', function(req, res){
+  res.render('register', {layout: 'register.ejs', version: appVersion});
+});
+
 
 app.use(function(req, res, next){
     res.status(404).render('404', { layout: '404.ejs' });
